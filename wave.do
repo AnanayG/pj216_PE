@@ -1,6 +1,14 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-WaveRestoreCursors {{Cursor 1} {15000 ps} 0}
+add wave -noupdate -radix unsigned /M216A_TB/D_In1
+add wave -noupdate -radix unsigned /M216A_TB/D_In2
+add wave -noupdate -radix unsigned /M216A_TB/D_In3
+add wave -noupdate -radix unsigned /M216A_TB/Instruction_In
+add wave -noupdate -radix unsigned /M216A_TB/clk
+add wave -noupdate -radix unsigned /M216A_TB/rst
+add wave -noupdate -radix unsigned /M216A_TB/D_Out
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {41000 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -16,4 +24,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {102800 ps}
+WaveRestoreZoom {0 ps} {100200 ps}
