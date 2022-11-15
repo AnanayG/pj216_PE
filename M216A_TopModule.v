@@ -61,7 +61,7 @@ module M216A_TopModule(
   //----------------------------------------------------------------------------------------
   //Declarations
   
-  wire [15:0] reg_in1_0, reg_in1_1, reg_in1_2cc, reg_in1_3, reg_in1_4;
+  wire [15:0] reg_in1_0, reg_in1_1, reg_in1_2, reg_in1_3, reg_in1_4;
 	
   reg [15:0] adder_in1, adder_in2;
   wire [15:0] adder_out;
