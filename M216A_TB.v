@@ -78,7 +78,7 @@ initial begin
     #20;
     $display("Function2_Answer: 0,0,0,0,1,2,3,4,5,6,7");  
     
-//Function 3: Out = D_In2 + D_In3; Latency = 2;
+    //Function 3: Out = D_In2 + D_In3; Latency = 2;
     rst = 1'b1;
     clk = 1'b1;
     D_In1 = 0;
@@ -87,6 +87,7 @@ initial begin
     Instruction_In = `function3_instruction;
     #10;
     rst = 1'b0;
+    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
