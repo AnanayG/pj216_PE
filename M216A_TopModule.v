@@ -1,5 +1,6 @@
 `timescale 1ns / 100ps
 
+
 //Do NOT Modify This
 module P1_ADD (data_a_i,data_b_i,data_o);
 
@@ -59,7 +60,7 @@ module M216A_TopModule(
   reg [15:0]D_Out;
   
   //----------------------------------------------------------------------------------------
-  //Declarations
+  // Declarations
   
   wire [15:0] reg_in1_0, reg_in2_0, reg_in3_0; 
   wire [15:0] reg_in1_1, reg_in1_2, reg_in1_3, reg_in1_4;
@@ -71,6 +72,17 @@ module M216A_TopModule(
 
   wire [15:0] Instruction_In;
 
+  //----------------------------------------------------------------------------------------
+  // Parameters
+
+  parameter func1_ins = 16'b0000000000000001;
+  parameter func2_ins = 16'b0000000000000010;
+  parameter func3_ins = 16'b0000000000000011;
+  parameter func4_ins = 16'b0000000000000100;
+  parameter func5_ins = 16'b0000000000000101;
+  parameter func6_ins = 16'b0000000000000110;
+  parameter func7_ins = 16'b0000000000000111;
+  parameter func8_ins = 16'b0000000000001000;
 
   //----------------------------------------------------------------------------------------
   //Input Registers
@@ -136,16 +148,16 @@ module M216A_TopModule(
   //INPUT 1
   always @(*) begin
 	case(Instruction_In)
-		16'b0000000000000010: adder_in1 = 16'b0;	//func2
-		16'b0000000000000011: adder_in1 = reg_in2_0; 	//func3
+		func2_ins, func4_ins: adder_in1 = 16'b0;
+		func3_ins: adder_in1 = reg_in2_0;
 		default: adder_in1 = 16'b0;
 	endcase
   end
   //INPUT 2
   always @(*) begin
 	case(Instruction_In)
-		16'b0000000000000010: adder_in2 = mult_out;	//func2
-		16'b0000000000000011: adder_in2 = reg_in3_0; 	//func3
+		func2_ins, func4_ins: adder_in2 = mult_out;
+		func3_ins: adder_in2 = reg_in3_0;
 		default: adder_in2 = 16'b0;
 	endcase
   end
@@ -156,16 +168,16 @@ module M216A_TopModule(
   //INPUT 1
   always @(*) begin
 	case(Instruction_In)
-		16'b0000000000000010: mult_in1 = reg_in1_2;	//func2
-		16'b0000000000000011: mult_in1 = reg_in1_2;	//func3
-		default: mult_in1 = 16'b0;
+		func2_ins: mult_in1 = reg_in1_2;
+		func4_ins: mult_in1 = reg_in1_0;
+		default:   mult_in1 = 16'b0;
 	endcase
   end
   //INPUT 2
   always @(*) begin
 	case(Instruction_In)
-		16'b0000000000000010: mult_in2 = 16'b1;		//func2
-		16'b0000000000000011: mult_in2 = 16'b1;		//func3
+		func2_ins: mult_in2 = 16'b1;
+		func4_ins: mult_in2 = reg_in2_0;
 		default: mult_in2 = 16'b0;
 	endcase
   end
@@ -175,8 +187,8 @@ module M216A_TopModule(
   //OUTPUT MUX
   always @(*) begin
 	case(Instruction_In)
-		16'b0000000000000001: D_Out = reg_in1_2;	//func2
-		default: 	      D_Out = reg_in1_4;
+		func1_ins: D_Out = reg_in1_2;
+		default: D_Out = reg_in1_4;
 	endcase
   end
 endmodule
