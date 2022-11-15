@@ -1,2 +1,4 @@
 # pj216_PE
-Design of an efficient processing element (PE) that can host customized stream functions 
+Design of an efficient processing element (PE) that can host customized stream functions
+
+Project for EE216
