@@ -12,19 +12,20 @@ add wave -noupdate -radix unsigned /M216A_TB/uut/D_Out
 add wave -noupdate /M216A_TB/uut/Instruction_In
 add wave -noupdate -radix unsigned /M216A_TB/uut/reg_in1_0
 add wave -noupdate -radix unsigned /M216A_TB/uut/reg_in1_1
+add wave -noupdate -radix unsigned /M216A_TB/uut/reg_in1_2
+add wave -noupdate -radix unsigned /M216A_TB/uut/mult_in1
+add wave -noupdate -radix unsigned /M216A_TB/uut/mult_in2
+add wave -noupdate -radix unsigned /M216A_TB/uut/mult_out
 add wave -noupdate -radix unsigned /M216A_TB/uut/reg_in1_3
 add wave -noupdate -radix unsigned /M216A_TB/uut/reg_in1_4
 add wave -noupdate -radix unsigned /M216A_TB/uut/adder_in1
 add wave -noupdate -radix unsigned /M216A_TB/uut/adder_in2
 add wave -noupdate -radix unsigned /M216A_TB/uut/adder_out
-add wave -noupdate -radix unsigned /M216A_TB/uut/mult_in1
-add wave -noupdate -radix unsigned /M216A_TB/uut/mult_in2
-add wave -noupdate -radix unsigned /M216A_TB/uut/mult_out
 add wave -noupdate -radix unsigned /M216A_TB/uut/reg_in1_2
 add wave -noupdate /M216A_TB/uut/reg_in2_0
 add wave -noupdate /M216A_TB/uut/reg_in3_0
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {198900 ps} 0}
+WaveRestoreCursors {{Cursor 1} {214800 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -40,4 +41,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {209300 ps}
+WaveRestoreZoom {189400 ps} {236100 ps}

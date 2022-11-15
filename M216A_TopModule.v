@@ -84,6 +84,9 @@ module M216A_TopModule(
   parameter func7_ins = 16'b0000000000000111;
   parameter func8_ins = 16'b0000000000001000;
 
+  parameter CONSTANT_7  = 16'd7;
+  parameter CONSTANT_1  = 16'd1;
+  parameter CONSTANT_0  = 16'd0;
   //----------------------------------------------------------------------------------------
   //Input Registers
   P1_Reg R_In1
@@ -148,17 +151,19 @@ module M216A_TopModule(
   //INPUT 1
   always @(*) begin
 	case(Instruction_In)
-		func2_ins, func4_ins: adder_in1 = 16'b0;
-		func3_ins: adder_in1 = reg_in2_0;
-		default: adder_in1 = 16'b0;
+		func2_ins, func4_ins	: adder_in1 = CONSTANT_0;
+		func3_ins		: adder_in1 = reg_in2_0;
+		func5_ins, func7_ins	: adder_in1 = reg_in1_0;
+		func6_ins		: adder_in1 = reg_in1_3;
+		default			: adder_in1 = CONSTANT_0;
 	endcase
   end
   //INPUT 2
   always @(*) begin
 	case(Instruction_In)
-		func2_ins, func4_ins: adder_in2 = mult_out;
-		func3_ins: adder_in2 = reg_in3_0;
-		default: adder_in2 = 16'b0;
+		func2_ins, func4_ins, func5_ins, func6_ins, func7_ins	: adder_in2 = mult_out;
+		func3_ins						: adder_in2 = reg_in3_0;
+		default							: adder_in2 = CONSTANT_0;
 	endcase
   end
 
@@ -168,17 +173,21 @@ module M216A_TopModule(
   //INPUT 1
   always @(*) begin
 	case(Instruction_In)
-		func2_ins: mult_in1 = reg_in1_2;
-		func4_ins: mult_in1 = reg_in1_0;
-		default:   mult_in1 = 16'b0;
+		func2_ins		: mult_in1 = reg_in1_2;
+		func4_ins		: mult_in1 = reg_in1_0;
+		func5_ins, func6_ins	: mult_in1 = reg_in3_0;
+		func7_ins		: mult_in1 = reg_in1_2;
+		default			: mult_in1 = CONSTANT_0;
 	endcase
   end
   //INPUT 2
   always @(*) begin
 	case(Instruction_In)
-		func2_ins: mult_in2 = 16'b1;
-		func4_ins: mult_in2 = reg_in2_0;
-		default: mult_in2 = 16'b0;
+		func2_ins		: mult_in2 = CONSTANT_1;
+		func6_ins		: mult_in2 = CONSTANT_7;
+		func4_ins, func5_ins	: mult_in2 = reg_in2_0;
+		func7_ins		: mult_in2 = reg_in1_1;
+		default			: mult_in2 = CONSTANT_0;
 	endcase
   end
 

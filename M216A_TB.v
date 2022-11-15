@@ -54,7 +54,6 @@ initial begin
         D_In3 = i + 7;
             $display("Function1_Output: %d",D_Out);
     end
-    #20;
     $display("Function1_Answer: 0,0,1,2,3,4,5,6,7,8,9");
     
 //Function 2: Out = D_In1; Latency = 4;
@@ -75,7 +74,6 @@ initial begin
         D_In3 = i + 7;
             $display("Function2_Output: %d",D_Out);
     end
-    #20;
     $display("Function2_Answer: 0,0,0,0,1,2,3,4,5,6,7");  
     
     //Function 3: Out = D_In2 + D_In3; Latency = 2;
@@ -96,7 +94,6 @@ initial begin
         D_In3 = i + 7;
             $display("Function3_Output: %d",D_Out);
     end
-    #20;
     $display("Function3_Answer: 0,0,12,14,16,18,20,22,24,26,28");   
          
     //Function 4: Out = D_In1 * D_In2; Latency = 2;
@@ -117,7 +114,6 @@ initial begin
         D_In3 = i + 7;
             $display("Function4_Output: %d",D_Out);
     end
-    #20;
     $display("Function4_Answer: 0,0,4,10,18,28,40,54,70,88,108");   
     
 
@@ -130,6 +126,7 @@ initial begin
     Instruction_In = `function5_instruction;
     #10;
     rst = 1'b0;
+    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -150,6 +147,7 @@ initial begin
     Instruction_In = `function6_instruction;
     #10;
     rst = 1'b0;
+    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -171,6 +169,7 @@ initial begin
     Instruction_In = `function7_instruction;
     #10;
     rst = 1'b0;
+    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -191,6 +190,7 @@ initial begin
     Instruction_In = `function8_instruction;
     #10;
     rst = 1'b0;
+    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
