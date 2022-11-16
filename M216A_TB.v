@@ -9,8 +9,6 @@
 `define function7_instruction 16'b0000000000000111;
 `define function8_instruction 16'b0000000000001000;
 
-
-
 module M216A_TB();
 
 reg [15:0] D_In1;
@@ -34,7 +32,7 @@ M216A_TopModule uut(
 );
 
 always #1 clk = ~clk;
-integer i;
+integer i,O1;
 
 initial begin
 //Function 1: Out = D_In1; Latency = 2;
@@ -65,7 +63,6 @@ initial begin
     Instruction_In = `function2_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -76,7 +73,7 @@ initial begin
     end
     $display("Function2_Answer: 0,0,0,0,1,2,3,4,5,6,7");  
     
-    //Function 3: Out = D_In2 + D_In3; Latency = 2;
+//Function 3: Out = D_In2 + D_In3; Latency = 2;
     rst = 1'b1;
     clk = 1'b1;
     D_In1 = 0;
@@ -85,7 +82,6 @@ initial begin
     Instruction_In = `function3_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -105,7 +101,6 @@ initial begin
     Instruction_In = `function4_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -126,7 +121,6 @@ initial begin
     Instruction_In = `function5_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -147,7 +141,6 @@ initial begin
     Instruction_In = `function6_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -169,7 +162,6 @@ initial begin
     Instruction_In = `function7_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -190,7 +182,6 @@ initial begin
     Instruction_In = `function8_instruction;
     #10;
     rst = 1'b0;
-    #1;
     for(i = 1; i < 12; i = i + 1)
     begin
         #2;
@@ -199,7 +190,7 @@ initial begin
         D_In3 = i + 7;
             $display("Function8_Output: %d",D_Out);
     end
-    $display("Function8_Answer: 0,0,0,0,0,0,2,8,20,40,70");  
+    $display("Function8_Answer: 0,0,0,0,0,0,12,32,62,104,160");  
 end
     
 
