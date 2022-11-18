@@ -1,0 +1,37 @@
+ 
+****************************************
+check_design summary:
+Version:     M-2016.12-SP2
+Date:        Thu Nov 17 18:05:42 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     18
+    Unconnected ports (LINT-28)                                    18
+
+Cells                                                               1
+    Connected to power or ground (LINT-32)                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'M216A_TopModule_DW01_add_0', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW01_add_0', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule_DW_mult_uns_0', port 'product[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'M216A_TopModule', a pin on submodule 'P1_ADD_0/add_11' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+1

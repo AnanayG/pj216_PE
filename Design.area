@@ -1,0 +1,45 @@
+ 
+****************************************
+Report : area
+Design : M216A_TopModule
+Version: M-2016.12-SP2
+Date   : Thu Nov 17 18:05:41 2022
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_ff1p16vn40c (File: /w/apps2/public.2/tech/synopsys/32-28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.db)
+
+Number of ports:                          196
+Number of nets:                          1083
+Number of cells:                          807
+Number of combinational cells:            640
+Number of sequential cells:               165
+Number of macros/black boxes:               0
+Number of buf/inv:                         67
+Number of references:                      30
+
+Combinational area:               1787.903060
+Buf/Inv area:                      125.292997
+Noncombinational area:            1083.670052
+Macro/Black Box area:                0.000000
+Net Interconnect area:             515.224108
+
+Total cell area:                  2871.573112
+Total area:                       3386.797220
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  -----------------------------
+M216A_TopModule                   2871.5731    100.0   789.3713  1083.6701  0.0000  M216A_TopModule
+P1_ADD_0/add_11                     81.3261      2.8    81.3261     0.0000  0.0000  M216A_TopModule_DW01_add_0
+P1_MULT_0/mult_22                  917.2057     31.9   917.2057     0.0000  0.0000  M216A_TopModule_DW_mult_uns_0
+--------------------------------  ---------  -------  ---------  ---------  ------  -----------------------------
+Total                                                 1787.9031  1083.6701  0.0000
+
+1
