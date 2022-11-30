@@ -37,7 +37,7 @@ integer i,O1;
 initial begin
 //Function 1: Out = D_In1; Latency = 2;
     rst = 1'b1;
-    clk = 1'b1;
+    clk = 1'b0;
     D_In1 = 0;
     D_In2 = 0;
     D_In3 = 0;

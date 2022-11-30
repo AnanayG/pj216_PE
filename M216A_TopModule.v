@@ -63,14 +63,14 @@ module M216A_TopModule(
   // Declarations
   
   wire [15:0] reg_in1_0, reg_in2_0, reg_in3_0; 
-  wire [15:0] reg_in1_1, reg_in1_2, reg_in1_3, reg_in1_4, reg_in1_5;
+  wire [15:0] reg_in1_1, reg_in1_2, reg_in1_3, reg_in1_4;
   wire [15:0] reg_mult_out_3, reg_mult_out_4;
 
-  wire [15:0] reg_constant1, reg_constant2, reg_constant3, reg_constant4;
+  wire [15:0] reg_constant1, reg_constant2, reg_constant3;
   reg  [15:0] reg_in1_input;
 	
-  reg [15:0] adder_in1, adder_in2;
-  wire [15:0] adder_out;
+  reg [15:0] adder_in1;
+  wire [15:0] adder_out, adder_in2;
   reg [15:0] mult_in1, mult_in2;
   wire [15:0] mult_out;
 
@@ -92,26 +92,6 @@ module M216A_TopModule(
   parameter CONSTANT_1  = 16'd1;
   parameter CONSTANT_0  = 16'd0;
   //----------------------------------------------------------------------------------------
-  //Input Registers
-  P1_Reg R_In1
-       (.DataIn(D_In1),
-        .DataOut(reg_in1_0),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
-  P1_Reg R_In2
-       (.DataIn(D_In2),
-        .DataOut(reg_in2_0),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
-  P1_Reg R_In3
-       (.DataIn(D_In3),
-        .DataOut(reg_in3_0),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
-
   //Stage Registers
   P1_Reg R1
        (.DataIn(reg_in1_input),
@@ -137,12 +117,6 @@ module M216A_TopModule(
         .rst(Rst_In),
         .clk(Clk_In)
         );
-  P1_Reg R5
-       (.DataIn(reg_in1_4),
-        .DataOut(reg_in1_5),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
 
   //func8 registers
   P1_Reg MULT_reg_3
@@ -159,8 +133,7 @@ module M216A_TopModule(
         .clk(Clk_In)
         );
 
-
-  //in1 registers - func8
+  //in1 registers - func8 - THIS FLUSHES OUT THE TWO FIRST VALUES FOR FUNC8
   P1_Reg constant_reg_1
        (.DataIn(16'b1),
         .DataOut(reg_constant1),
@@ -179,12 +152,6 @@ module M216A_TopModule(
         .rst(Rst_In),
         .clk(Clk_In)
         );
-  P1_Reg constant_reg_4
-       (.DataIn(reg_constant3),
-        .DataOut(reg_constant4),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
   //----------------------------------------------------------------------------------------
   //Combinational Logic
   P1_ADD P1_ADD_0
@@ -196,6 +163,11 @@ module M216A_TopModule(
         .data_b_i(mult_in2),
         .data_o(mult_out));
   
+  //----------------------------------------------------------------------------------------
+  //Input Lines
+  assign reg_in1_0 = D_In1;
+  assign reg_in2_0 = D_In2;
+  assign reg_in3_0 = D_In3;
 
   //----------------------------------------------------------------------------------------
   //Adder MUX
@@ -209,33 +181,26 @@ module M216A_TopModule(
 		default			: adder_in1 = CONSTANT_0;
 	endcase
   end
-  //INPUT 2
-  always @(*) begin
-	case(Instruction_In)
-		func2_ins, func4_ins, func5_ins, func6_ins, func7_ins	: adder_in2 = mult_out;
-		func3_ins						: adder_in2 = reg_in3_0;
-		func8_ins						: adder_in2 = reg_mult_out_4;
-		default							: adder_in2 = CONSTANT_0;
-	endcase
-  end
 
+  //INPUT 2 - always connected to the MULT
+  assign  adder_in2 = mult_out;
 
   //----------------------------------------------------------------------------------------
   //Mult MUX
   //INPUT 1
   always @(*) begin
 	case(Instruction_In)
-		func2_ins		: mult_in1 = reg_in1_2;
-		func4_ins		: mult_in1 = reg_in1_0;
-		func5_ins, func6_ins	: mult_in1 = reg_in3_0;
-		func7_ins, func8_ins	: mult_in1 = reg_in1_2;
+		func2_ins			: mult_in1 = reg_in1_2;
+		func4_ins			: mult_in1 = reg_in1_0;
+		func5_ins, func6_ins, func3_ins	: mult_in1 = reg_in3_0;
+		func7_ins, func8_ins		: mult_in1 = reg_in1_2;
 		default			: mult_in1 = CONSTANT_0;
 	endcase
   end
   //INPUT 2
   always @(*) begin
 	case(Instruction_In)
-		func2_ins		: mult_in2 = CONSTANT_1;
+		func2_ins, func3_ins	: mult_in2 = CONSTANT_1;
 		func6_ins		: mult_in2 = CONSTANT_7;
 		func4_ins, func5_ins	: mult_in2 = reg_in2_0;
 		func7_ins, func8_ins    : mult_in2 = reg_in1_1;
@@ -246,9 +211,9 @@ module M216A_TopModule(
   //----------------------------------------------------------------------------------------
   //INPUT1 MUX - func8
   always @(*) begin
-	case(reg_constant4)
+	case(reg_constant3)
 		1'b1	: reg_in1_input = reg_in1_0;
-		default : reg_in1_input = CONSTANT_0;
+		default : reg_in1_input = (Instruction_In == func8_ins)? CONSTANT_0: reg_in1_0;
 	endcase
   end
 
@@ -257,7 +222,6 @@ module M216A_TopModule(
   always @(*) begin
 	case(Instruction_In)
 		func1_ins: D_Out = reg_in1_2;
-		func7_ins: D_Out = reg_in1_5;
 		default: D_Out = reg_in1_4;
 	endcase
   end
