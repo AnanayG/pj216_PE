@@ -3,7 +3,7 @@
 Report : resources
 Design : M216A_TopModule
 Version: M-2016.12-SP2
-Date   : Thu Nov 17 18:05:42 2022
+Date   : Thu Dec  1 18:39:07 2022
 ****************************************
 
 Resource Sharing Report for design M216A_TopModule in file ./M216A_TopModule.v
@@ -12,8 +12,8 @@ Resource Sharing Report for design M216A_TopModule in file ./M216A_TopModule.v
 |          |              |            | Contained     |                      |
 | Resource | Module       | Parameters | Resources     | Contained Operations |
 ===============================================================================
-| r320     | DW01_add     | width=16   |               | P1_ADD_0/add_11      |
-| r902     | DW_mult_uns  | a_width=16 |               | P1_MULT_0/mult_22    |
+| r313     | DW01_add     | width=16   |               | P1_ADD_0/add_11      |
+| r895     | DW_mult_uns  | a_width=16 |               | P1_MULT_0/mult_22    |
 |          |              | b_width=16 |               |                      |
 ===============================================================================
 

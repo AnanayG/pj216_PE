@@ -4,11 +4,11 @@ Report : constraint
         -verbose
 Design : M216A_TopModule
 Version: M-2016.12-SP2
-Date   : Thu Nov 17 18:05:42 2022
+Date   : Thu Dec  1 18:39:07 2022
 ****************************************
 
 
-  Startpoint: Instruction_In[10]
+  Startpoint: Instruction_In[8]
               (input port clocked by Clk_In)
   Endpoint: R3/DataReg_reg[15]
             (rising edge-triggered flip-flop clocked by Clk_In)
@@ -26,57 +26,55 @@ Date   : Thu Nov 17 18:05:42 2022
   clock Clk_In (rise edge)                                0.00       0.00
   clock network delay (ideal)                             0.00       0.00
   input external delay                                    0.60       0.60 f
-  Instruction_In[10] (in)                                 0.00       0.60 f
-  U927/Y (INVX2_RVT)                                      0.00       0.60 r
-  U990/Y (NAND4X0_RVT)                                    0.02       0.62 f
-  U994/Y (NOR4X1_RVT)                                     0.03       0.66 r
-  U947/Y (AND2X1_RVT)                                     0.02       0.68 r
-  U937/Y (INVX1_RVT)                                      0.01       0.69 f
-  U946/Y (NOR3X0_RVT)                                     0.03       0.72 r
-  U981/Y (AO21X1_RVT)                                     0.02       0.73 r
-  U914/Y (NBUFFX4_RVT)                                    0.02       0.75 r
-  U982/Y (AO222X2_RVT)                                    0.06       0.81 r
-  P1_MULT_0/mult_22/U344/Y (AND2X1_RVT)                   0.02       0.83 r
-  P1_MULT_0/mult_22/U117/S (FADDX1_RVT)                   0.05       0.87 f
-  P1_MULT_0/mult_22/U116/S (FADDX1_RVT)                   0.05       0.92 r
-  P1_MULT_0/mult_22/U13/CO (FADDX1_RVT)                   0.03       0.95 r
-  P1_MULT_0/mult_22/U321/Y (NAND2X0_RVT)                  0.01       0.96 f
-  P1_MULT_0/mult_22/U323/Y (NAND3X0_RVT)                  0.02       0.98 r
-  P1_MULT_0/mult_22/U11/CO (FADDX1_RVT)                   0.03       1.01 r
-  P1_MULT_0/mult_22/U10/CO (FADDX1_RVT)                   0.03       1.04 r
-  P1_MULT_0/mult_22/U9/CO (FADDX1_RVT)                    0.03       1.07 r
-  P1_MULT_0/mult_22/U8/CO (FADDX1_RVT)                    0.03       1.10 r
-  P1_MULT_0/mult_22/U7/CO (FADDX1_RVT)                    0.03       1.13 r
-  P1_MULT_0/mult_22/U461/Y (NAND2X0_RVT)                  0.01       1.15 f
-  P1_MULT_0/mult_22/U351/Y (NAND3X0_RVT)                  0.01       1.16 r
-  P1_MULT_0/mult_22/U465/Y (NAND2X0_RVT)                  0.01       1.17 f
-  P1_MULT_0/mult_22/U467/Y (NAND3X0_RVT)                  0.02       1.19 r
-  P1_MULT_0/mult_22/U4/CO (FADDX1_RVT)                    0.03       1.22 r
-  P1_MULT_0/mult_22/U3/CO (FADDX1_RVT)                    0.03       1.25 r
-  P1_MULT_0/mult_22/U337/Y (XNOR2X2_RVT)                  0.03       1.28 f
-  P1_MULT_0/mult_22/U336/Y (XOR2X2_RVT)                   0.03       1.31 r
-  U1101/Y (AO222X1_RVT)                                   0.03       1.34 r
-  P1_ADD_0/add_11/U1_15/Y (XOR3X2_RVT)                    0.04       1.38 r
-  U989/Y (AND2X1_RVT)                                     0.02       1.39 r
-  R3/DataReg_reg[15]/D (DFFX1_RVT)                        0.00       1.39 r
-  data arrival time                                                  1.39
+  Instruction_In[8] (in)                                  0.00       0.60 f
+  U529/Y (INVX1_RVT)                                      0.01       0.61 r
+  U586/Y (NAND4X0_RVT)                                    0.02       0.63 f
+  U587/Y (NOR4X1_RVT)                                     0.03       0.66 r
+  U552/Y (AND4X1_RVT)                                     0.03       0.68 r
+  U555/Y (NBUFFX2_RVT)                                    0.02       0.70 r
+  U518/Y (AO21X2_RVT)                                     0.03       0.73 r
+  U600/Y (AO22X1_RVT)                                     0.04       0.78 r
+  P1_MULT_0/mult_22/U331/Y (AND2X1_RVT)                   0.02       0.80 r
+  P1_MULT_0/mult_22/U114/S (FADDX1_RVT)                   0.05       0.85 f
+  P1_MULT_0/mult_22/U335/Y (XNOR2X1_RVT)                  0.04       0.88 r
+  P1_MULT_0/mult_22/U310/Y (XNOR2X1_RVT)                  0.04       0.92 r
+  P1_MULT_0/mult_22/U12/CO (FADDX1_RVT)                   0.03       0.95 r
+  P1_MULT_0/mult_22/U11/CO (FADDX1_RVT)                   0.03       0.98 r
+  P1_MULT_0/mult_22/U477/Y (NAND2X0_RVT)                  0.01       0.99 f
+  P1_MULT_0/mult_22/U480/Y (NAND3X0_RVT)                  0.02       1.01 r
+  P1_MULT_0/mult_22/U9/CO (FADDX1_RVT)                    0.03       1.04 r
+  P1_MULT_0/mult_22/U8/CO (FADDX1_RVT)                    0.03       1.07 r
+  P1_MULT_0/mult_22/U7/CO (FADDX1_RVT)                    0.03       1.10 r
+  P1_MULT_0/mult_22/U6/CO (FADDX1_RVT)                    0.03       1.14 r
+  P1_MULT_0/mult_22/U470/Y (NAND2X0_RVT)                  0.01       1.15 f
+  P1_MULT_0/mult_22/U472/Y (NAND3X0_RVT)                  0.02       1.16 r
+  P1_MULT_0/mult_22/U475/Y (NAND2X0_RVT)                  0.01       1.17 f
+  P1_MULT_0/mult_22/U476/Y (NAND3X0_RVT)                  0.02       1.19 r
+  P1_MULT_0/mult_22/U3/CO (FADDX1_RVT)                    0.03       1.22 r
+  P1_MULT_0/mult_22/U394/Y (XNOR2X2_RVT)                  0.03       1.25 r
+  P1_MULT_0/mult_22/U340/Y (XOR3X1_RVT)                   0.02       1.27 f
+  P1_MULT_0/mult_22/U296/Y (XNOR2X2_RVT)                  0.03       1.30 r
+  P1_ADD_0/add_11/U1_15/Y (XOR3X2_RVT)                    0.02       1.32 f
+  U447/Y (AND2X1_RVT)                                     0.02       1.34 f
+  R3/DataReg_reg[15]/D (DFFX1_RVT)                        0.00       1.34 f
+  data arrival time                                                  1.34
 
-  clock Clk_In (rise edge)                                1.51       1.51
-  clock network delay (ideal)                             0.00       1.51
-  clock uncertainty                                      -0.10       1.41
-  R3/DataReg_reg[15]/CLK (DFFX1_RVT)                      0.00       1.41 r
-  library setup time                                     -0.01       1.40
-  data required time                                                 1.40
+  clock Clk_In (rise edge)                                1.45       1.45
+  clock network delay (ideal)                             0.00       1.45
+  clock uncertainty                                      -0.10       1.35
+  R3/DataReg_reg[15]/CLK (DFFX1_RVT)                      0.00       1.35 r
+  library setup time                                     -0.01       1.34
+  data required time                                                 1.34
   --------------------------------------------------------------------------
-  data required time                                                 1.40
-  data arrival time                                                 -1.39
+  data required time                                                 1.34
+  data arrival time                                                 -1.34
   --------------------------------------------------------------------------
   slack (MET)                                                        0.00
 
 
-  Startpoint: R1/DataReg_reg[0]
+  Startpoint: R1/DataReg_reg[3]
               (rising edge-triggered flip-flop clocked by Clk_In)
-  Endpoint: R2/DataReg_reg[0]
+  Endpoint: R2/DataReg_reg[3]
             (rising edge-triggered flip-flop clocked by Clk_In)
   Path Group: Clk_In
   Path Type: min
@@ -89,16 +87,16 @@ Date   : Thu Nov 17 18:05:42 2022
   -----------------------------------------------------------
   clock Clk_In (rise edge)                 0.00       0.00
   clock network delay (ideal)              0.00       0.00
-  R1/DataReg_reg[0]/CLK (DFFX1_RVT)        0.00       0.00 r
-  R1/DataReg_reg[0]/Q (DFFX1_RVT)          0.04       0.04 r
-  U1085/Y (AND2X1_RVT)                     0.05       0.09 r
-  R2/DataReg_reg[0]/D (DFFX1_RVT)          0.01       0.10 r
+  R1/DataReg_reg[3]/CLK (DFFX1_RVT)        0.00       0.00 r
+  R1/DataReg_reg[3]/Q (DFFX1_RVT)          0.04       0.04 r
+  U628/Y (AND2X1_RVT)                      0.05       0.09 r
+  R2/DataReg_reg[3]/D (DFFX1_RVT)          0.01       0.10 r
   data arrival time                                   0.10
 
   clock Clk_In (rise edge)                 0.00       0.00
   clock network delay (ideal)              0.00       0.00
   clock uncertainty                        0.10       0.10
-  R2/DataReg_reg[0]/CLK (DFFX1_RVT)        0.00       0.10 r
+  R2/DataReg_reg[3]/CLK (DFFX1_RVT)        0.00       0.10 r
   library hold time                       -0.01       0.09
   data required time                                  0.09
   -----------------------------------------------------------
@@ -108,28 +106,28 @@ Date   : Thu Nov 17 18:05:42 2022
   slack (MET)                                         0.01
 
 
-    Net: reg_in1_0[1]
+    Net: reg_in1_1[0]
 
     max_transition         0.04
-  - Transition Time        0.02
+  - Transition Time        0.01
   ------------------------------
     Slack                  0.03  (MET)
 
 
-    Net: mult_in2[1]
+    Net: mult_in1[4]
 
     max_capacitance        8.00
-  - Capacitance            7.65
+  - Capacitance            6.09
   ------------------------------
-    Slack                  0.35  (MET)
+    Slack                  1.91  (MET)
 
 
     Design: M216A_TopModule
 
     max_area               0.00
-  - Current Area        3386.80
+  - Current Area        2263.84
   ------------------------------
-    Slack              -3386.80  (VIOLATED)
+    Slack              -2263.84  (VIOLATED)
 
 
 Min pulse width constraints
@@ -137,7 +135,7 @@ Min pulse width constraints
                        Required      Actual
   Pin                pulse width   pulse width   Slack           Scenario
 --------------------------------------------------------------------------------
-  R_In1/DataReg_reg[0]/CLK(high)
-                      0.02          0.65          0.63 (MET)
+  R3/DataReg_reg[15]/CLK(high)
+                      0.02          0.62          0.60 (MET)
 
 1

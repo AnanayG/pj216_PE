@@ -118,21 +118,6 @@ module M216A_TopModule(
         .clk(Clk_In)
         );
 
-  //func8 registers
-  P1_Reg MULT_reg_3
-       (.DataIn(mult_out),
-        .DataOut(reg_mult_out_3),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
-
-  P1_Reg MULT_reg_4
-       (.DataIn(reg_mult_out_3),
-        .DataOut(reg_mult_out_4),
-        .rst(Rst_In),
-        .clk(Clk_In)
-        );
-
   //in1 registers - func8 - THIS FLUSHES OUT THE TWO FIRST VALUES FOR FUNC8
   P1_Reg constant_reg_1
        (.DataIn(16'b1),
